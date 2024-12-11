@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-violet-700 p-3">
+    <main class="bg-white p-3 rounded-md">
+        <!-- Busca -->
+        <div class="mb-6">
+            <div >
+                <input 
+                    type="text" 
+                    placeholder="Oque está buscando?"
+                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700  outline-none rounded-md pl-3 duration-200"
+                />
+            </div>
+            <div class="w-[50px] h-[50px] bg-violet-700 rounded-full fixed bottom-6 right-3 flex justify-center  items-center z-50 fill-white mr-2">
+                <box-icon type='solid' name='filter-alt'></box-icon>
+            </div>
+            
+        </div>
+        <!-- Lista de produtos -->
+        <section id="produtos" class="grid md:grid-cols-2 gap-3 lg:grid-cols-4"></section>   
+    </main>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
