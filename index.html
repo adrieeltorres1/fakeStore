@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fake Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        clifford: '#da373d',
+                        
                     }
                 }
             }
@@ -21,22 +21,68 @@
 
 <body class="bg-violet-700 p-3">
     <main class="bg-white p-3 rounded-md">
-        <!-- Busca -->
-        <div class="mb-6">
-            <div >
+        <!-- busca -->
+        <div class="mb-6 lg:flex gap-3">
+            <div class="lg:flex-1">
                 <input 
                     type="text" 
-                    placeholder="Oque está buscando?"
-                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700  outline-none rounded-md pl-3 duration-200"
+                    placeholder="O que está buscando..."
+                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700 outline-none rounded-md pl-3 duration-200"
                 />
             </div>
-            <div class="w-[50px] h-[50px] bg-violet-700 rounded-full fixed bottom-6 right-3 flex justify-center  items-center z-50 fill-white mr-2">
+            <div class="hidden lg:block lg:w-2/12">
+                <select 
+                    id="filtro_categorias" 
+                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700 outline-none rounded-md pl-3 duration-200"
+                    onchange="filtrarCategoria()"   
+                >
+                    <option disabled selected>--escolha a categoria--</option>
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="hidden lg:block lg:w-2/12">
+                <select 
+                    id="ordenacao" 
+                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700 outline-none rounded-md pl-3 duration-200"
+                    onchange="ordenarProdutos()"   
+                >
+                    <option disabled selected>--ordenar por--</option>
+                    <option value="price">Preço</option>
+                    <option value="rating.rate">Avaliação</option>
+                </select>
+            </div>
+            <!-- butao do filter -->
+            <div 
+                onclick="showFilter()"
+                class="w-[50px] h-[50px] bg-violet-700 rounded-full fixed bottom-6 right-3 flex justify-center items-center z-50 fill-white lg:hidden"
+            >
                 <box-icon type='solid' name='filter-alt'></box-icon>
             </div>
-            
+            <!-- cortina escura -->
+            <div id="overlay" onclick="showFilter()" class="w-full h-full bg-black opacity-0 invisible fixed top-0 left-0 z-40 duration-200"></div>
+            <!-- parte branca -->
+            <div id="gaveta" class="w-9/12 h-full bg-white fixed top-0 -right-full z-40 duration-200 p-3">
+                <select 
+                    id="filtro_categorias_mobile" 
+                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700 outline-none rounded-md pl-3 duration-200 mb-3"
+                    onchange="filtrarCategoriaMobile()"   
+                >
+                    <option disabled selected>--escolha a categoria--</option>
+                    <option>Todos</option>
+                </select>
+                <select 
+                    id="ordenacao" 
+                    class="w-full h-[40px] border-2 border-gray-400 focus:border-violet-700 outline-none rounded-md pl-3 duration-200"
+                    onchange="ordenarProdutos()"   
+                >
+                    <option disabled selected>--ordenar por--</option>
+                    <option value="price">Preço</option>
+                    <option value="rating.rate">Avaliação</option>
+                </select>
+            </div>
         </div>
-        <!-- Lista de produtos -->
-        <section id="produtos" class="grid md:grid-cols-2 gap-3 lg:grid-cols-4"></section>   
+        <!-- lista de produtos -->
+        <section id="produtos" class="grid gap-3 md:grid-cols-2 lg:grid-cols-4 ">vazia</section>
     </main>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="index.js"></script>
