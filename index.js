@@ -42,16 +42,6 @@ function filtrarCategoria(){
     let filtrados = products.filter(produto => produto.category == categoriaSelecionada);
     //chamo a função que alimenta a interface com os produtos filtraddos
     insertProducts(filtrados);
-
-    // outra forma de fazer a mesma coisa
-    // insertProducts(products.filter((produto) => {
-    //     if(produto.category == filtro_categorias.value){
-    //         return produto;
-    //     }
-    // }));
-
-    // versão mais reduzida
-    // insertProducts(products.filter(produto => produto.category == filtro_categorias.value))
 }
 
 function filtrarCategoriaMobile(){
@@ -69,16 +59,6 @@ function filtrarCategoriaMobile(){
     //chamo a função que alimenta a interface com os produtos filtraddos
     insertProducts(filtrados);
     showFilter();
-
-    // outra forma de fazer a mesma coisa
-    // insertProducts(products.filter((produto) => {
-    //     if(produto.category == filtro_categorias.value){
-    //         return produto;
-    //     }
-    // }));
-
-    // versão mais reduzida
-    // insertProducts(products.filter(produto => produto.category == filtro_categorias.value))
 }
 
 function ordenarProdutos(){
